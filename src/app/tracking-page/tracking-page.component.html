@@ -1,0 +1,65 @@
+<div style="height: 100%">
+  <form (submit)="getPackageDetails()">
+<div style="display: flex; justify-content: center; padding-bottom: 100px; padding-top: 100px;">
+  <div style="width: 20%;">
+    <input style="height: 50px; width: 100%;" type="text" [(ngModel)]="trackingNumber"  name="trackingNumber" placeholder="Enter package ID">
+  </div>
+  <div style="padding-left: 50px;">
+    <button  style="background-color: greenyellow; color: black; border-radius: 5px; height: 56px;
+    width: 115px;" type="submit">Track</button>
+  </div>
+</div>
+</form>
+
+
+<div style="display: flex; justify-content: space-around;">
+  <div >
+  <div>
+    <h2>Package Details</h2>
+    <ol *ngIf="packageDetails" >
+      <li>
+          <div>Description: <span>{{ packageDetails?.description }}</span> </div>
+      </li>
+      <li >
+        <div>From Name: <span>{{packageDetails?.from_name}} </span></div>
+      </li>
+      <li >
+        <div>From Address: <span>{{packageDetails?.from_address}}</span></div>
+      </li>
+      <li >
+          <div>weight: <span>{{packageDetails?.weight}}</span> </div>
+      </li>
+      <li >
+          <div>width: <span>{{packageDetails?.width}}</span> </div>
+      </li>
+      <li >
+          <div>height: <span>{{packageDetails?.height}}</span> </div>
+      </li>
+      <li >
+        <div>depth: <span>{{packageDetails?.depth}}</span> </div>
+      </li>
+    </ol>
+  </div>
+
+  <div>
+    <h2>Delivery Details</h2>
+    <ol *ngIf="packageDetails" >
+      <li >
+        <div>To Name: <span>{{packageDetails?.to_name}}</span> </div>
+      </li>
+      <li >
+        <div>To Address: <span>{{packageDetails?.to_address}}</span> </div>
+      </li>
+    </ol>
+  </div>
+
+  </div>
+
+  <div class="map-container" style="width: 900px;">
+    <app-location-track [latitude]="getFromLocationLatitude()" [longitude]="getFromLocationLongitude()"></app-location-track>
+  </div>
+
+</div>
+
+</div>
+

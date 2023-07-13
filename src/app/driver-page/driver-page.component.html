@@ -1,0 +1,55 @@
+<div style="height: 100%">
+  <form (submit)="getDriverDetails()">
+<div style="display: flex; justify-content: center; padding-bottom: 100px; padding-top: 100px;">
+  <div style="width: 20%;">
+    <input style="height: 50px; width: 100%;" type="text" [(ngModel)]="trackingNumber"  name="trackingNumber" placeholder="Enter Delivery ID">
+  </div>
+  <div style="padding-left: 50px;">
+    <button  style="background-color: greenyellow; color: black; border-radius: 5px; height: 56px;
+    width: 115px;" type="submit">Submit</button>
+  </div>
+</div>
+</form>
+
+
+<div style="display: flex; justify-content: space-around;">
+  <div >
+  <div>
+    <h2>Package Details</h2>
+    <ol *ngIf="driverDetails" >
+      <li>
+          <div>Package ID: <span>{{ driverDetails?.package_id }}</span> </div>
+      </li>
+      <li >
+        <div>Pickup Time: <span>{{driverDetails?.pickup_time}} </span></div>
+      </li>
+    </ol>
+  </div>
+
+  <div>
+    <h2>Delivery Details</h2>
+    <ol *ngIf="driverDetails" >
+      <li >
+        <div>To Address: <span>{{driverDetails?.to_address}}</span> </div>
+      </li>
+      <li >
+        <div>Start Time: <span>{{driverDetails?.start_time}}</span> </div>
+      </li>
+      <li >
+        <div>End Time: <span>{{driverDetails?.end_time}}</span> </div>
+      </li>
+      <li >
+        <div>Status: <span>{{driverDetails?.status}}</span> </div>
+      </li>
+    </ol>
+  </div>
+
+  </div>
+
+  <div class="map-container" style="width: 900px;">
+    <app-location-track [latitude]="getToLocationLatitude()" [longitude]="getToLocationLongitude()"></app-location-track>
+  </div>
+
+</div>
+
+</div>

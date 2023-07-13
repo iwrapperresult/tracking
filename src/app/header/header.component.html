@@ -1,0 +1,28 @@
+<style>
+  header {
+  text-align: center;
+  background-color: #EEE;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+
+}
+
+.active {
+  color: #666;
+  text-decoration: underline;
+}
+</style>
+<header>
+  <h1>GOZEM TEST</h1>
+  <nav>
+    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tracking</a>
+    <a routerLink="driver" routerLinkActive="active" >Driver</a>
+  </nav>
+  <button (click)="onAddNewForm()"> contact us</button>
+</header>
