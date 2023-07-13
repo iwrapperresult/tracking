@@ -6,13 +6,13 @@ import axios from 'axios';
 @Injectable({
   providedIn: 'root'
 })
-export class DriverService {
+export class AdminService {
   private apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
-  getDriverDetails(trackingNumber: string): Observable<any> {
-    const url = `${this.apiUrl}/delivery/${trackingNumber}`;
+  getPackages(): Observable<any> {
+    const url = `${this.apiUrl}/package/`;
     return new Observable<any>((observer) => {
       axios.get(url)
         .then((response) => {
@@ -25,8 +25,18 @@ export class DriverService {
     });
   }
 
-  updateStatus(deliveryId: string, status: string) {
-    const url = `${this.apiUrl}/delivery/${deliveryId}/status`;
-    return axios.put(url, { status });
+  getDeliveries(): Observable<any> {
+    const url = `${this.apiUrl}/delivery/`;
+    return new Observable<any>((observer) => {
+      axios.get(url)
+        .then((response) => {
+          observer.next(response.data);
+          observer.complete();
+        })
+        .catch((error) => {
+          observer.error(error);
+        });
+    });
   }
+
 }

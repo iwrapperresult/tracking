@@ -1,0 +1,53 @@
+<h2 style="text-align: -webkit-center;">{{ formContent === 'package' ? 'Package Form' : 'Delivery Form' }}</h2>
+<div  *ngIf="formContent === 'delivery'">
+  <div style="text-align: -webkit-center; width: 152%;">
+    <div class="inputs" >
+      <div>
+        <label for="packageSelect">Select Package:</label>
+        <select  style=" width: 30%" id="packageSelect" [(ngModel)]="selectedPackage" (ngModelChange)="onPackageSelectionChange($event)">
+          <option *ngFor="let package of packages" [value]="package._id">{{ package._id }}</option>
+        </select>
+      </div>
+      <div>
+        <label>Address</label>
+      <input style=" width: 30%" type="text" placeholder="Douala center" [ngModel]="addressToPackage" [ngModelOptions]="{ standalone: true }" (ngModelChange)="addressToPackage = $event" />
+      </div>
+      <div style="color: black;font-weight: 600; padding-bottom: 5px;">Pickup Time :</div>
+        <label>Hours</label>
+        <input style=" width: 30%" type="time" [(ngModel)]="pickupHours" />
+        <button style=" width: 30%" type="submit" (click)="submitForm()">Submit</button>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="formContent === 'package'">
+<div style="text-align: -webkit-center;">
+  <div class="inputs">
+    <div style="color: black;font-weight: 600; padding-bottom: 5px;">From :</div>
+    <label>Name</label>
+    <input type="text" placeholder="Zenou" [(ngModel)]="fromName"/>
+    <label>Address</label>
+    <input type="text" placeholder="Dakar, plateau" [(ngModel)]="fromAddress"/>
+    <div style="color: black;font-weight: 600; padding-bottom: 5px;">To :</div>
+    <label>Name</label>
+    <input type="text" placeholder="Crepin" [(ngModel)]="toName"/>
+    <label>Address</label>
+    <input type="text" placeholder="Douala center"  [(ngModel)]="toAddress"/>
+    <div style="color: black;font-weight: 600; padding-bottom: 5px;">Item :</div>
+    <label>Description</label>
+    <input type="text" placeholder="Iphone 13" [(ngModel)]="description"/>
+    <div style="display: flex; padding-top: 4%;">
+      <label>weight
+        <input type="number" placeholder="2"  [(ngModel)]="weight"/></label>
+      <label>width</label>
+      <input type="number" placeholder="2" [(ngModel)]="width"/>
+      <label>height</label>
+      <input type="number" placeholder="2" [(ngModel)]="height" />
+      <label>depth</label>
+      <input type="number" placeholder="2" [(ngModel)]="depth"/>
+    </div>
+    <button type="submit" (click)="submitFormPackage()">Submit</button>
+  </div>
+</div>
+</div>

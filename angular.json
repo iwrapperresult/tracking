@@ -35,7 +35,7 @@
               "src/styles.sass"
             ],
             "scripts": [
-              "./node_modules/leaflet/dist/leaflet.js"
+              "node_modules/leaflet/dist/leaflet.js"
             ]
           },
           "configurations": {
@@ -97,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/leaflet/dist/leaflet.css",
               "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.sass"
             ],

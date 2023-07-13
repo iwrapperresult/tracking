@@ -9,6 +9,9 @@ import { HeaderComponent } from './header/header.component';
 import { LocationTrackComponent } from './location-track/location-track.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DriverPageComponent } from './driver-page/driver-page.component';
+import { AdminComponent } from './admin/admin.component';
+import { FormComponent } from './form/form.component';
+import { FormService } from './form/form.service';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,8 @@ import { DriverPageComponent } from './driver-page/driver-page.component';
     HeaderComponent,
     LocationTrackComponent,
     DriverPageComponent,
+    AdminComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import { DriverPageComponent } from './driver-page/driver-page.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

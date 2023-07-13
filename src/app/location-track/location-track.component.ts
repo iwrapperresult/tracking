@@ -16,7 +16,7 @@ export class LocationTrackComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit() {
-    if (this.latitude && this.longitude) {
+    if (this.latitude !== undefined && this.longitude !== undefined) {
       this.initializeMap(this.latitude, this.longitude);
     }
   }
@@ -25,7 +25,6 @@ export class LocationTrackComponent implements AfterViewInit {
 
   initializeMap(latitude: number, longitude: number) {
     const map = L.map('map').setView([latitude, longitude], 10);
-
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
     }).addTo(map);

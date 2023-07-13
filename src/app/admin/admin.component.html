@@ -1,0 +1,35 @@
+<div style="display: flex; justify-content: space-around;">
+  <div>
+    <h2>Packages List</h2>
+
+    <ul *ngFor="let pkg of packages" >
+      <li>
+          <div>Package ID: <span>{{ pkg._id }}</span> </div>
+      </li>
+    </ul>
+
+  <h2>Deliveries List</h2>
+
+  <ul *ngFor="let delivery of deliveries" >
+  <li>
+      <div>Delivery ID: <span>{{ delivery._id }}</span> </div>
+  </li>
+  </ul>
+
+  </div>
+
+  <div style="display: grid;">
+    <button
+      style="background-culor: rgb(0, 166, 255); culor: black; border-radius: 5px; height: 56px; width: 115px;"
+      (click)="openPackageForm()">Create Package</button>
+    <button
+      style="background-culor: rgb(255, 175, 47); culor: black; border-radius: 5px; height: 56px; width: 115px;"
+      (click)="openDeliveryForm()">Create Delivery</button>
+  </div>
+  <ng-container *ngIf="(formService.formContent$ | async) as formContent">
+    <!-- <h2>{{ formContent === 'package' ? 'Create Package' : 'Create Delivery' }}</h2> -->
+    <!-- Contenu du formulaire -->
+  </ng-container>
+</div>
+
+
